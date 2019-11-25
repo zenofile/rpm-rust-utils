@@ -1,6 +1,6 @@
 Name:           skim
 Version:        0.6.9
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Fuzzy Finder in rust! 
 
 License:        MIT
@@ -58,10 +58,10 @@ cargo install --root=%{buildroot}%{_prefix} --path=.
 ln -sf %{_datadir}/skim/skim.vim %{vim_plugin_path}/skim.vim 
 
 %triggerin -- bash-completion
-ln -sf %{_datadir}/skim/completion.bash %{zsh_completion_path}/sk
+ln -sf %{_datadir}/skim/completion.bash %{bash_completion_path}/sk
 
 %triggerin -- zsh
-ln -sf %{_datadir}/skim/completion.zsh %{bash_completion_path}/_sk
+ln -sf %{_datadir}/skim/completion.zsh %{zsh_completion_path}/_sk
 
 %triggerun -- bash-completion
 [ $2 -gt 0 ] && exit 0
@@ -76,6 +76,8 @@ rm -f %{zsh_completion_path}/_sk
 rm -f %{vim_plugin_path}/skim.vim
 
 %changelog
+* Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-3
+- minor fixes
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-2
 - use %trigger for linking files
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-1

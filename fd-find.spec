@@ -1,6 +1,6 @@
 Name:           fd-find
 Version:        7.4.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A simple, fast and user-friendly alternative to find(1) 
 
 License:        MIT or ASL 2.0
@@ -74,6 +74,8 @@ rm -f %{zsh_completion_path}/_fd
 rm -f %{fish_completion_path}/fd.fish
 	
 %changelog
+* Mon Nov 25 2019 zeno <zeno@bafh.org> 7.4.0-3
+- minor fixes
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 7.4.0-2
 - use %trigger for linking files
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 7.4.0-1
