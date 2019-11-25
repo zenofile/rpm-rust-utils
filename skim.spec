@@ -1,6 +1,6 @@
 Name:           skim
 Version:        0.6.9
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Fuzzy Finder in rust! 
 
 License:        MIT
@@ -76,6 +76,8 @@ rm -f %{zsh_completion_path}/_sk
 rm -f %{vim_plugin_path}/skim.vim
 
 %changelog
+* Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-4
+- minor fixes
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-3
 - minor fixes
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-2
