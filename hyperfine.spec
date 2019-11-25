@@ -40,9 +40,6 @@ cargo install --root=%{buildroot}%{_prefix} --path=.
 %doc README.md 
 
 %{_bindir}/hyperfine
-
-%dir %{_datadir}/hyperfine
-%dir %{_datadir}/hyperfine/scripts
 %{_datadir}/hyperfine/scripts/*
 	
 %changelog
