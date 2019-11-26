@@ -1,5 +1,5 @@
 Name:           hyperfine
-Version:        1.8.0
+Version:        1.9.0
 Release:        1%{?dist}
 Summary:        A command-line benchmarking tool
 
@@ -26,7 +26,7 @@ A command-line benchmarking tool.}
 # -n prevents creating ~backup files
 # -i specifies the interpreter for the shebang
 # Need to list files that do not match ^[a-zA-Z0-9_]+\.py$ explicitly!
-pathfix.py -pni "%{__python3} %{py3_shbang_opts}" .
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/
 
 %build
 cargo install --root=%{buildroot}%{_prefix} --path=.
@@ -43,5 +43,7 @@ cargo install --root=%{buildroot}%{_prefix} --path=.
 %{_datadir}/hyperfine/scripts/*
 	
 %changelog
+* Tue Nov 26 2019 zeno <zeno@bafh.org> 1.9.0-1
+- Bump version to 1.9.0
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 1.8.0-1
 - Initial package build
