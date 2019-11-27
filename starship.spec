@@ -1,6 +1,6 @@
 Name:           starship
-Version:        0.26.4
-Release:        3%{?dist}
+Version:        0.26.5
+Release:        1%{?dist}
 Summary:        The cross-shell prompt for astronauts.
 
 License:        ISC
@@ -31,5 +31,7 @@ cargo install --root=%{buildroot}%{_prefix} --path=.
 %doc README.md docs/README.md
 
 %changelog
+* Sun Nov 24 2019 zeno <zeno@bafh.org> 0.26.5-1
+- Bump version
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.26.4-3
 - Initial package build
