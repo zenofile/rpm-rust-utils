@@ -1,17 +1,16 @@
 %define         pkgname         mdcat
-%global         forgeurl        https://github.com/sharkdp/%{pkgname}
-Version:        1.9.0
+%global         forgeurl        https://github.com/lunaryorn/%{pkgname}
+Version:        0.13.0
 
 %forgemeta -i
 
-Name:           mdcat
-Version:        0.13.0
-Release:        1%{?dist}
+Name:           %{pkgname}
+Release:        2%{?dist}
 Summary:        Cat(1) for Markdown
-
 License:        MIT or ASL 2.0
-URL:            https://github.com/lunaryorn/mdcat
-Source0:        https://github.com/lunaryorn/mdcat/archive/mdcat-%{version}.tar.gz
+
+URL:            %{forgeurl}
+Source0:        %{forgesource}
 
 %global         debug_package %{nil}
 
@@ -29,20 +28,22 @@ Cat(1) for Markdown.}
 %description %{_description}
 
 %prep
-%autosetup -n mdcat-mdcat-%{version} -p1
+%forgesetup
 
 %build
 cargo install --root=%{buildroot}%{_prefix} --path=.
 
 %install
-%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/mdcat
+%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgname}
 
 %files
 %license LICENSE
 %doc README.md 
 
-%{_bindir}/mdcat
+%{_bindir}/%{pkgname}
 
 %changelog
+* Sun Dec 01 2019 zeno <zeno@bafh.org> 0.13.0-2
+- Use forge macros
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.13.0-1
 - Initial package build
