@@ -1,11 +1,17 @@
-Name:           skim
+%define         pkgname         skim
+%define         binary          sk
+%global         forgeurl        https://github.com/lotabout/%{pkgname}
 Version:        0.6.9
-Release:        4%{?dist}
-Summary:        Fuzzy Finder in rust! 
 
+%forgemeta -i
+
+Name:           %{pkgname}
+Release:        5%{?dist}
+Summary:        Fuzzy Finder in rust! 
 License:        MIT
-URL:            https://github.com/lotabout/skim
-Source0:        https://github.com/lotabout/skim/archive/v%{version}.tar.gz
+
+URL:            %{forgeurl}
+Source0:        %{forgesource}
 
 %global         debug_package %{nil}
 
@@ -24,58 +30,60 @@ It is blazingly fast as it reads the data source asynchronously.}
 %description %{_description}
 
 %prep
-%autosetup -n skim-%{version} -p1
+%forgesetup
 
 %build
 cargo install --root=%{buildroot}%{_prefix} --path=.
 
 %install
-%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/sk
-%{__install} -Dpm0755 -t %{buildroot}%{_bindir} bin/sk-tmux
+%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{binary}
+%{__install} -Dpm0755 -t %{buildroot}%{_bindir} bin/%{binary}-tmux
 
-%{__install} -Dpm0644 -t %{buildroot}%{_mandir}/man1 man/man1/sk.1
-%{__install} -Dpm0644 -t %{buildroot}%{_mandir}/man1 man/man1/sk-tmux.1
+%{__install} -Dpm0644 -t %{buildroot}%{_mandir}/man1 man/man1/%{binary}.1
+%{__install} -Dpm0644 -t %{buildroot}%{_mandir}/man1 man/man1/%{binary}-tmux.1
 
-%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/skim plugin/skim.vim
+%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/%{pkgname} plugin/%{pkgname}.vim
 
-%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/skim shell/completion.bash
-%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/skim shell/completion.zsh
+%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/%{pkgname} shell/completion.bash
+%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/%{pkgname} shell/completion.zsh
 
-%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/skim shell/key-bindings.bash
-%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/skim shell/key-bindings.zsh
-%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/skim shell/key-bindings.fish
+%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/%{pkgname} shell/key-bindings.bash
+%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/%{pkgname} shell/key-bindings.zsh
+%{__install} -Dpm0644 -t %{buildroot}%{_datadir}/%{pkgname} shell/key-bindings.fish
 
 %files
 %license LICENSE
 %doc README.md CHANGELOG.md
-%{_bindir}/sk
-%{_bindir}/sk-tmux
-%{_mandir}/man1/sk.1*
-%{_mandir}/man1/sk-tmux.1*
-%{_datadir}/skim
+%{_bindir}/%{binary}
+%{_bindir}/%{binary}-tmux
+%{_mandir}/man1/%{binary}.1*
+%{_mandir}/man1/%{binary}-tmux.1*
+%{_datadir}/%{pkgname}
 
 %triggerin -- vim-filesystem
-ln -sf %{_datadir}/skim/skim.vim %{vim_plugin_path}/skim.vim 
+ln -sf %{_datadir}/%{pkgname}/%{pkgname}.vim %{vim_plugin_path}/%{pkgname}.vim 
 
 %triggerin -- bash-completion
-ln -sf %{_datadir}/skim/completion.bash %{bash_completion_path}/sk
+ln -sf %{_datadir}/%{pkgname}m/completion.bash %{bash_completion_path}/%{binary}
 
 %triggerin -- zsh
-ln -sf %{_datadir}/skim/completion.zsh %{zsh_completion_path}/_sk
+ln -sf %{_datadir}/%{pkgname}m/completion.zsh %{zsh_completion_path}/_%{binary}
 
 %triggerun -- bash-completion
 [ $2 -gt 0 ] && exit 0
-rm -f %{bash_completion_path}/sk
+rm -f %{bash_completion_path}/%{binary}
 
 %triggerun -- zsh
 [ $2 -gt 0 ] && exit 0
-rm -f %{zsh_completion_path}/_sk
+rm -f %{zsh_completion_path}/_%{binary}
 
 %triggerun -- vim-filesystem
 [ $2 -gt 0 ] && exit 0
-rm -f %{vim_plugin_path}/skim.vim
+rm -f %{vim_plugin_path}/%{pkgname}m.vim
 
 %changelog
+* Sun Dec 01 2019 zeno <zeno@bafh.org> 0.6.9-5
+- Use forge macros
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-4
 - minor fixes
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-3

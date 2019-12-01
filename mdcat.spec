@@ -1,6 +1,8 @@
 %define         pkgname         mdcat
 %global         forgeurl        https://github.com/lunaryorn/%{pkgname}
 Version:        0.13.0
+%global         tag             %{pkgname}-%{version}
+
 
 %forgemeta -i
 
