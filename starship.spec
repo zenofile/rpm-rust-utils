@@ -25,13 +25,13 @@ The prompt shows information you need while you're working, while staying sleek 
 %forgesetup
 
 %build
-cargo install --root=%{buildroot}%{_prefix} --path=.
+cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 
 %install
-%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgnam}
+%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgname}
 
 %files
-%{_bindir}/%{pkgnam}
+%{_bindir}/%{pkgname}
 %license LICENSE
 %doc README.md docs/README.md
 

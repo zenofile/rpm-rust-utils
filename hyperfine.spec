@@ -29,7 +29,7 @@ A command-line benchmarking tool.}
 pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/
 
 %build
-cargo install --root=%{buildroot}%{_prefix} --path=.
+cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 
 %install
 %{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgname}

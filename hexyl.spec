@@ -29,7 +29,7 @@ other ASCII characters and non-ASCII)..}
 %forgesetup
 
 %build
-cargo install --root=%{buildroot}%{_prefix} --path=.
+cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 
 %install
 %{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgname}

@@ -36,7 +36,7 @@ it provides sensible (opinionated) defaults for 80% of the use cases.}
 %forgesetup
 
 %build
-cargo install --root=%{buildroot}%{_prefix} --path=.
+cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 
 mv -vf target/release/build/%{pkgfull}-*/out/%{pkgname}.bash   %{_tmppath}/completion.bash
 mv -vf target/release/build/%{pkgfull}-*/out/_%{pkgname}       %{_tmppath}/completion.zsh
