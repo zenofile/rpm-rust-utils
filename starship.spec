@@ -1,11 +1,16 @@
-Name:           starship
+%define         pkgname         starship
+%global         forgeurl        https://github.com/%{pkgname}/%{pkgname}
 Version:        0.26.5
-Release:        1%{?dist}
-Summary:        The cross-shell prompt for astronauts.
 
+%forgemeta -i
+
+Name:           %{pkgname}
+Release:        2%{?dist}
+Summary:        The cross-shell prompt for astronauts.
 License:        ISC
-URL:            https://github.com/starship/starship
-Source0:        https://github.com/starship/starship/archive/v%{version}.tar.gz
+
+URL:            %{forgeurl}
+Source0:        %{forgesource}
 
 %global         debug_package %{nil}
 
@@ -17,20 +22,22 @@ Starship is the minimal, blazing fast, and extremely customizable prompt for any
 The prompt shows information you need while you're working, while staying sleek and out of the way.
 
 %prep
-%autosetup -n starship-%{version} -p1
+%forgesetup
 
 %build
 cargo install --root=%{buildroot}%{_prefix} --path=.
 
 %install
-%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/starship
+%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgnam}
 
 %files
-%{_bindir}/starship
+%{_bindir}/%{pkgnam}
 %license LICENSE
 %doc README.md docs/README.md
 
 %changelog
+* Sun Dec 01 2019 zeno <zeno@bafh.org> 0.26.5-2
+- Use forge macros
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.26.5-1
 - Bump version
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.26.4-3
