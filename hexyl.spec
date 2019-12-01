@@ -1,11 +1,15 @@
-Name:           hexyl
+%define         pkgname         hexyl
+%global         forgeurl        https://github.com/sharkdp/%{pkgname}
 Version:        0.6.0
-Release:        1%{?dist}
-Summary:        A command-line hex viewer
 
+
+Name:           %{pkgname}
+Release:        2%{?dist}
+Summary:        A command-line hex viewer
 License:        MIT or ASL 2.0
-URL:            https://github.com/sharkdp/hexyl
-Source0:        https://github.com/sharkdp/hexyl/archive/v%{version}.tar.gz
+
+URL:            %{forgeurl}
+Source0:        %{forgesource}
 
 %global         debug_package %{nil}
 
@@ -21,7 +25,7 @@ other ASCII characters and non-ASCII)..}
 %description %{_description}
 
 %prep
-%autosetup -n hexyl-%{version} -p1
+%forgesetup
 
 %build
 cargo install --root=%{buildroot}%{_prefix} --path=.
@@ -36,5 +40,7 @@ cargo install --root=%{buildroot}%{_prefix} --path=.
 %{_bindir}/hexyl
 	
 %changelog
+* Sun Dec 01 2019 zeno <zeno@bafh.org> 0.6.0-2
+- Use forge macros
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.6.0-1
 - Initial package build
