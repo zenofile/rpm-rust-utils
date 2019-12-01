@@ -2,6 +2,7 @@
 %global         forgeurl        https://github.com/sharkdp/%{pkgname}
 Version:        0.6.0
 
+%forgemeta -i
 
 Name:           %{pkgname}
 Release:        2%{?dist}
@@ -31,13 +32,13 @@ other ASCII characters and non-ASCII)..}
 cargo install --root=%{buildroot}%{_prefix} --path=.
 
 %install
-%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/hexyl
+%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgname}
 
 %files
 %license LICENSE-MIT LICENSE-APACHE
 %doc README.md 
 
-%{_bindir}/hexyl
+%{_bindir}/%{pkgname}
 	
 %changelog
 * Sun Dec 01 2019 zeno <zeno@bafh.org> 0.6.0-2

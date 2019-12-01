@@ -1,3 +1,9 @@
+%define         pkgname         mdcat
+%global         forgeurl        https://github.com/sharkdp/%{pkgname}
+Version:        1.9.0
+
+%forgemeta -i
+
 Name:           mdcat
 Version:        0.13.0
 Release:        1%{?dist}

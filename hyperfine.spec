@@ -1,11 +1,16 @@
-Name:           hyperfine
+%define         pkgname         hyperfine
+%global         forgeurl        https://github.com/sharkdp/%{pkgname}
 Version:        1.9.0
-Release:        1%{?dist}
-Summary:        A command-line benchmarking tool
 
+%forgemeta -i
+
+Name:           %{pkgname}
+Release:        2%{?dist}
+Summary:        A command-line benchmarking tool
 License:        MIT or ASL 2.0
-URL:            https://github.com/sharkdp/hyperfine
-Source0:        https://github.com/sharkdp/hyperfine/archive/v%{version}.tar.gz
+
+URL:            %{forgeurl}
+Source0:        %{forgesource}
 
 %global         debug_package %{nil}
 
@@ -20,29 +25,26 @@ A command-line benchmarking tool.}
 %description %{_description}
 
 %prep
-%autosetup -n hyperfine-%{version} -p1
-# Fix all Python shebangs recursively in .
-# -p preserves timestamps
-# -n prevents creating ~backup files
-# -i specifies the interpreter for the shebang
-# Need to list files that do not match ^[a-zA-Z0-9_]+\.py$ explicitly!
+%forgesetup
 pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/
 
 %build
 cargo install --root=%{buildroot}%{_prefix} --path=.
 
 %install
-%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/hyperfine
-%{__install} -Dpm0755 -t %{buildroot}%{_datadir}/hyperfine/scripts scripts/*
+%{__install} -Dpm0755 -t %{buildroot}%{_bindir} target/release/%{pkgname}
+%{__install} -Dpm0755 -t %{buildroot}%{_datadir}/%{pkgname}/scripts scripts/*
 
 %files
 %license LICENSE-MIT LICENSE-APACHE
 %doc README.md 
 
-%{_bindir}/hyperfine
-%{_datadir}/hyperfine/scripts/*
+%{_bindir}/%{pkgname}
+%{_datadir}/%{pkgname}/scripts/*
 	
 %changelog
+* Sun Dec 01 2019 zeno <zeno@bafh.org> 1.9.0-2
+- Use forge macros
 * Tue Nov 26 2019 zeno <zeno@bafh.org> 1.9.0-1
 - Bump version to 1.9.0
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 1.8.0-1
