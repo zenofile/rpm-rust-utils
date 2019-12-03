@@ -1,11 +1,11 @@
 %define         pkgname         starship
 %global         forgeurl        https://github.com/%{pkgname}/%{pkgname}
-Version:        0.26.5
+Version:        0.27.0
 
 %forgemeta -i
 
 Name:           %{pkgname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        The cross-shell prompt for astronauts.
 License:        ISC
 
@@ -36,6 +36,8 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 %doc README.md docs/README.md
 
 %changelog
+* Tue Dec 03 2019 zeno <zeno@bafh.org> 0.27.0-1
+- Bump version
 * Sun Dec 01 2019 zeno <zeno@bafh.org> 0.26.5-2
 - Use forge macros
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.26.5-1
