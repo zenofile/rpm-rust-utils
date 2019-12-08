@@ -58,6 +58,10 @@ mv -vf target/release/build/%{pkgfull}-*/out/%{pkgname}.fish   %{_tmppath}/compl
 %{_mandir}/man1/%{pkgname}.1*
 %{_datadir}/%{pkgfull}
 
+%ghost %{bash_completion_path}/%{pkgname}
+%ghost %{zsh_completion_path}/_%{pkgname}
+%ghost %{fish_completion_path}/%{pkgname}.fish
+
 %triggerin -- bash-completion
 ln -sf %{_datadir}/%{pkgfull}/completion.bash %{bash_completion_path}/%{pkgname}
 

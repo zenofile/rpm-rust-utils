@@ -60,6 +60,10 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 %{_mandir}/man1/%{binary}-tmux.1*
 %{_datadir}/%{pkgname}
 
+%ghost %{vim_plugin_path}/%{pkgname}.vim
+%ghost %{bash_completion_path}/%{binary}
+%ghost %{zsh_completion_path}/_%{binary}
+
 %triggerin -- vim-filesystem
 ln -sf %{_datadir}/%{pkgname}/%{pkgname}.vim %{vim_plugin_path}/%{pkgname}.vim 
 

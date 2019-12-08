@@ -46,6 +46,8 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 %{_mandir}/man1/%{pkgname}.1*
 %{_datadir}/%{pkgname}
 
+%ghost %{fish_completion_path}/%{pkgname}.fish
+
 %triggerin -- fish
 ln -sf %{_datadir}/%{pkgname}/completion.fish %{fish_completion_path}/%{pkgname}.fish
 
