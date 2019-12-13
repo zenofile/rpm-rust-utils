@@ -1,6 +1,6 @@
 %define         pkgname         starship
 %global         forgeurl        https://github.com/%{pkgname}/%{pkgname}
-Version:        0.29.0
+Version:        0.30.1
 
 %forgemeta -i
 
@@ -36,6 +36,8 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 %doc README.md docs/README.md
 
 %changelog
+* Fri Dec 13 2019 zeno <zeno@bafh.org> 0.30.1-1
+- Bump version
 * Wed Dec 11 2019 zeno <zeno@bafh.org> 0.29.0-1
 - Bump version
 * Sat Dec 07 2019 zeno <zeno@bafh.org> 0.28.0-1
