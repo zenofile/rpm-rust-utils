@@ -1,13 +1,13 @@
 %define         pkgname         mdcat
 %global         forgeurl        https://github.com/lunaryorn/%{pkgname}
-Version:        0.13.0
+Version:        0.14.0
 %global         tag             %{pkgname}-%{version}
 
 
 %forgemeta -i
 
 Name:           %{pkgname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Cat(1) for Markdown
 License:        MIT or ASL 2.0
 
@@ -45,6 +45,8 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 %{_bindir}/%{pkgname}
 
 %changelog
+* Sun Dec 01 2019 zeno <zeno@bafh.org> 0.14.0-1
+- Bump version
 * Sun Dec 01 2019 zeno <zeno@bafh.org> 0.13.0-2
 - Use forge macros
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.13.0-1
