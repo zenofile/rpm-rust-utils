@@ -1,11 +1,11 @@
 %define         pkgname         tokei
 %global         forgeurl        https://github.com/XAMPPRocky/%{pkgname}
-Version:        10.1.0
+Version:        10.1.1
 
 %forgemeta -i
 
 Name:           %{pkgname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Count your code, quickly.
 License:        MIT or ASL 2.0
 
@@ -40,6 +40,8 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never --features al
 %{_bindir}/%{pkgname}
 	
 %changelog
+* Sun Dec 29 2019 zeno <zeno@bafh.org> 10.1.1-1
+- Bump version
 * Sun Dec 01 2019 zeno <zeno@bafh.org> 10.1.0-2
 - Use forge macros
 * Sun Nov 26 2019 zeno <zeno@bafh.org> 10.1.0-1
