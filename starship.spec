@@ -1,6 +1,6 @@
 %define         pkgname         starship
 %global         forgeurl        https://github.com/%{pkgname}/%{pkgname}
-Version:        0.30.1
+Version:        0.31.0
 
 %forgemeta -i
 
@@ -16,6 +16,8 @@ Source0:        %{forgesource}
 
 BuildRequires:  cargo >= 1.39
 BuildRequires:  rust >= 1.39
+
+BuildRequires:  pkgconfig(openssl)
 
 %description
 Starship is the minimal, blazing fast, and extremely customizable prompt for any shell!
@@ -36,6 +38,8 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 %doc README.md docs/README.md
 
 %changelog
+* Fri Dec 20 2019 zeno <zeno@bafh.org> 0.31.0-1
+- Bump version
 * Fri Dec 13 2019 zeno <zeno@bafh.org> 0.30.1-1
 - Bump version
 * Wed Dec 11 2019 zeno <zeno@bafh.org> 0.29.0-1
