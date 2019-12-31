@@ -1,12 +1,12 @@
 %define         pkgname         skim
 %define         binary          sk
 %global         forgeurl        https://github.com/lotabout/%{pkgname}
-Version:        0.6.9
+Version:        0.8.1
 
 %forgemeta -i
 
 Name:           %{pkgname}
-Release:        5%{?dist}
+Release:        1%{?dist}
 Summary:        Fuzzy Finder in rust! 
 License:        MIT
 
@@ -68,10 +68,10 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 ln -sf %{_datadir}/%{pkgname}/%{pkgname}.vim %{vim_plugin_path}/%{pkgname}.vim 
 
 %triggerin -- bash-completion
-ln -sf %{_datadir}/%{pkgname}m/completion.bash %{bash_completion_path}/%{binary}
+ln -sf %{_datadir}/%{pkgname}/completion.bash %{bash_completion_path}/%{binary}
 
 %triggerin -- zsh
-ln -sf %{_datadir}/%{pkgname}m/completion.zsh %{zsh_completion_path}/_%{binary}
+ln -sf %{_datadir}/%{pkgname}/completion.zsh %{zsh_completion_path}/_%{binary}
 
 %triggerun -- bash-completion
 [ $2 -gt 0 ] && exit 0
@@ -83,16 +83,8 @@ rm -f %{zsh_completion_path}/_%{binary}
 
 %triggerun -- vim-filesystem
 [ $2 -gt 0 ] && exit 0
-rm -f %{vim_plugin_path}/%{pkgname}m.vim
+rm -f %{vim_plugin_path}/%{pkgname}.vim
 
 %changelog
-* Sun Dec 01 2019 zeno <zeno@bafh.org> 0.6.9-5
-- Use forge macros
-* Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-4
-- minor fixes
-* Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-3
-- minor fixes
-* Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-2
-- use %trigger for linking files
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 0.6.9-1
 - Initial package build

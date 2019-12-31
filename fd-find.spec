@@ -1,7 +1,7 @@
 %define         pkgname         fd
 %define         pkgfull         %{pkgname}-find
 %global         forgeurl        https://github.com/sharkdp/%{pkgname}
-Version:        7.4.0
+Version:        8.0.0
 
 %forgemeta -i
 
@@ -84,11 +84,5 @@ rm -f %{zsh_completion_path}/_%{pkgname}
 rm -f %{fish_completion_path}/%{pkgname}.fish
 	
 %changelog
-* Sun Dec 01 2019 zeno <zeno@bafh.org> 7.4.0-4
-- Use forge macros
-* Mon Nov 25 2019 zeno <zeno@bafh.org> 7.4.0-3
-- minor fixes
-* Mon Nov 25 2019 zeno <zeno@bafh.org> 7.4.0-2
-- use %trigger for linking files
 * Mon Nov 25 2019 zeno <zeno@bafh.org> 7.4.0-1
 - Initial package build

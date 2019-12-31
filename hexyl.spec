@@ -1,11 +1,11 @@
 %define         pkgname         hexyl
 %global         forgeurl        https://github.com/sharkdp/%{pkgname}
-Version:        0.6.0
+Version:        0.7.0
 
 %forgemeta -i
 
 Name:           %{pkgname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        A command-line hex viewer
 License:        MIT or ASL 2.0
 
@@ -41,7 +41,7 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 %{_bindir}/%{pkgname}
 	
 %changelog
-* Sun Dec 01 2019 zeno <zeno@bafh.org> 0.6.0-2
-- Use forge macros
+* Tue Mar 10 2020 zeno <zeno@bafh.org> 0.7.0-1
+- bump version
 * Sun Nov 24 2019 zeno <zeno@bafh.org> 0.6.0-1
 - Initial package build

@@ -1,6 +1,6 @@
 %define         pkgname         tokei
 %global         forgeurl        https://github.com/XAMPPRocky/%{pkgname}
-Version:        10.1.1
+Version:        11.1.1
 
 %forgemeta -i
 
@@ -40,9 +40,5 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never --features al
 %{_bindir}/%{pkgname}
 	
 %changelog
-* Sun Dec 29 2019 zeno <zeno@bafh.org> 10.1.1-1
-- Bump version
-* Sun Dec 01 2019 zeno <zeno@bafh.org> 10.1.0-2
-- Use forge macros
 * Sun Nov 26 2019 zeno <zeno@bafh.org> 10.1.0-1
 - Initial package build
