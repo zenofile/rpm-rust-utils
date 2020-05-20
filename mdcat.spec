@@ -1,6 +1,6 @@
 %define         pkgname         mdcat
 %global         forgeurl        https://github.com/lunaryorn/%{pkgname}
-Version:        0.16.0
+Version:        0.19.0
 %global         tag             %{pkgname}-%{version}
 
 
@@ -40,7 +40,7 @@ cargo install --root=%{buildroot}%{_prefix} --path=. --color never
 
 %files
 %license LICENSE
-%doc README.md 
+%doc README.md
 
 %{_bindir}/%{pkgname}
 

@@ -1,6 +1,6 @@
 %define         pkgname         hyperfine
 %global         forgeurl        https://github.com/sharkdp/%{pkgname}
-Version:        1.9.0
+Version:        1.10.0
 
 %forgemeta -i
 

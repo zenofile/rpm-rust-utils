@@ -1,6 +1,6 @@
 %define         pkgname         hexyl
 %global         forgeurl        https://github.com/sharkdp/%{pkgname}
-Version:        0.7.0
+Version:        0.8.0
 
 %forgemeta -i
 

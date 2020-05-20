@@ -1,6 +1,6 @@
 %define         pkgname         starship
 %global         forgeurl        https://github.com/%{pkgname}/%{pkgname}
-Version:        0.41.2
+Version:        0.42.0
 
 %forgemeta -i
 

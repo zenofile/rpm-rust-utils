@@ -1,6 +1,6 @@
 %define         pkgname         tokei
 %global         forgeurl        https://github.com/XAMPPRocky/%{pkgname}
-Version:        11.1.1
+Version:        12.0.3
 
 %forgemeta -i
 

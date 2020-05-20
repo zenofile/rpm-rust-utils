@@ -1,7 +1,7 @@
 %define         pkgname         fd
 %define         pkgfull         %{pkgname}-find
 %global         forgeurl        https://github.com/sharkdp/%{pkgname}
-Version:        8.0.0
+Version:        8.1.1
 
 %forgemeta -i
 

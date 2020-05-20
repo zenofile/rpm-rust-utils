@@ -1,6 +1,6 @@
 %define         pkgname         bat
 %global         forgeurl        https://github.com/sharkdp/%{pkgname}
-Version:        0.15.1
+Version:        0.15.4
 
 %forgemeta -i
 

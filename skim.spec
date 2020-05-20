@@ -1,7 +1,7 @@
 %define         pkgname         skim
 %define         binary          sk
 %global         forgeurl        https://github.com/lotabout/%{pkgname}
-Version:        0.8.1
+Version:        0.8.2
 
 %forgemeta -i
 
